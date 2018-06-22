@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <nav-bar/>
+    <jumbotron/>
+    <Navbar/>
     <router-view/>
     <Footer/>
     
@@ -8,14 +9,16 @@
 </template>
 
 <script>
+import Jumbotron from "./components/Jumbotron.vue";
 import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
-    "nav-bar": Navbar,
-    Footer
+    Navbar,
+    Footer,
+    Jumbotron
   }
 };
 </script>
@@ -23,6 +26,7 @@ export default {
 <style>
 #app {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: x-large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

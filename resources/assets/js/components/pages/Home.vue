@@ -1,17 +1,17 @@
 <template>
     <div>
-      <div class="container-fluid">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-9">
+        <div id="about" class="col-sm-9">
           <About/>
       </div>
-        <div id="contact" class="col-3">
+        <div id="contact" class="col-sm-3">
            <Contact/>
         </div>
       </div>
      </div>
       <hr>
-      <h1>Our Awesome Products</h1>
+      <br>
       <br>
       <products/>
     </div>
@@ -33,6 +33,9 @@ export default {
 </script>
 
 <style scoped>
+#about {
+  max-width: 70%;
+}
 #contact {
   max-width: none;
 }

@@ -1,5 +1,6 @@
 <template>
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark"  role="navigation">
+  <div class="container-fluid">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top"  role="navigation">
       <div class="container-fluid">
       <div class="navbar-header">
       <router-link class="navbar-brand" to="/"> T I F E R E T </router-link>
@@ -15,14 +16,14 @@
             <router-link class="nav-link" to="/#contact">Contact Us</router-link>
           </li>
       </ul>    
-      <ul class="secondary-nav navbar-nav ml-auto">
-
-            <li class="nav-item px-2">
+      <ul class="navbar-nav ml-auto mt-2">
+            <li class="nav-item px-3">
             <router-link class="nav-link" to="/cart"><span class="fas fa-shopping-cart"></span>  Cart</router-link>
           </li>
       </ul>
     </div>
     </nav>
+    </div>
 </template>
 
 <script>
@@ -35,8 +36,11 @@ export default {
 .navbar-brand {
   font-size: xx-large;
 }
-nav {
-  margin-bottom: 2%;
+
+@media only screen and (max-width: 640px) {
+  nav {
+    display: none;
+  }
 }
 </style>
 

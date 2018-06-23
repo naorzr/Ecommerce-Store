@@ -11,9 +11,3 @@
 
   </div>
 </template>
-
-<style scoped>
-#contact {
-  align-content: center;
-}
-</style>

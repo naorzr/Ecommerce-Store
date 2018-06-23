@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <jumbotron/>
     <Navbar/>
+    <body>
+    <jumbotron/>
+
     <router-view/>
     <Footer/>
+    </body>
     
   </div>
 </template>
@@ -29,8 +32,9 @@ export default {
   font-size: x-large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin: 2%;
+}
+body {
+  padding-top: 70px;
 }
 </style>

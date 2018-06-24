@@ -14,4 +14,18 @@
 Route::get('/', function () {
     return view('shop');
 });
+Route::get('/add-to-cart/{id}',[
+    'uses' => 'ProductController@getAddToCart',
+]);
+
+Route::get('/shopping-cart-items/',[
+    'uses' => 'ProductController@getCart',
+]);
+
+Route::delete('/delete-from-cart/{id}',[
+    'uses' => 'ProductController@deleteItemFromCart'
+]);
+
+
 Route::resource('products','ProductController');
+

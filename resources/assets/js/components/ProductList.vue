@@ -7,7 +7,7 @@
         <div class="col-9">
           <div class="row">
             <div id="product" v-for="(item,index) in items.slice(fromitem,toitem)" :key="index" class="col-lg-4 col-md-6 mb-4">
-              <product :imgsrc="item.image" :title="item.title" :price="item.price" :description="item.description" />
+              <product :id="item.id" :imagePath="item.imagePath" :title="item.title" :price="item.price" :description="item.description"  />
             </div>
           </div>
           <!-- /.row -->
@@ -19,10 +19,11 @@
     <!-- /.container -->
     <div class="container">
       <div class="row">
-        <div class="col-4"></div>
-        <div class="col-1"><button class="btn btn-secondary" v-on:click="updatePage(-1)">Prev</button></div>
-        <div class="col-1">Page {{currentpage}} out of {{totalpages}}</div>
-        <div class="col-1"><button class="btn btn-secondary" v-on:click="updatePage(1)">Next</button></div>
+        <div class="col-sm-2 col-lg-4"></div>
+        <div class="col"><button class="btn btn-secondary" v-on:click="updatePage(-1)">Prev</button>
+        <button id="display-btn" class="btn btn-secondary no-click">Page {{currentpage}} out of {{totalpages}}</button>
+        <button class="btn btn-secondary" v-on:click="updatePage(1)">Next</button>
+        </div>
       </div>
     </div>
 
@@ -65,7 +66,7 @@ export default {
       }
     },
     fetchItems() {
-      let uri = "http://localhost:8000/products";
+      let uri = "/products";
       axios.get(uri).then(response => {
         this.items = response.data;
         this.totalpages = Math.ceil(response.data.length / 6);
@@ -82,5 +83,9 @@ export default {
 <style>
 #product:hover {
   display: inline-block;
+}
+
+.no-click {
+  pointer-events: none;
 }
 </style>

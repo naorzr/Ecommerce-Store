@@ -18,7 +18,7 @@
       </ul>    
       <ul class="navbar-nav ml-auto mt-2">
             <li class="nav-item px-3">
-            <router-link class="nav-link" to="/cart"><span class="fas fa-shopping-cart"></span>  Cart</router-link>
+            <router-link class="nav-link" to="/shopping-cart"><span class="fas fa-shopping-cart"></span>  Cart</router-link>
           </li>
       </ul>
     </div>

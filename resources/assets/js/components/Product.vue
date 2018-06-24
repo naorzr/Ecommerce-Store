@@ -1,7 +1,7 @@
 <template>
 <div id="product">
 <div class="card h-100">
-                <img class="card-img-top" :src=imgsrc alt="">
+                <img class="card-img-top" :src="getUrl" alt="">
                 <div class="card-body">
                   <h4 class="card-title">
                     <h2 href="#">{{title}}</h2>
@@ -9,14 +9,33 @@
                   <h5>${{price}}</h5>
                   <p class="card-text">{{description}}</p>
                 </div>
-                  <button type="button" class="btn btn-primary">Add to Cart</button>
+                  <button type="button" class="btn btn-primary" v-on:click="addToCart(id)">Add to Cart</button>
               </div>
 </div>  
 </template>
 
 <script>
 export default {
-  props: ["title", "price", "imgsrc", "description"]
+  props: ["title", "price", "imagePath", "description", "id"],
+  data() {
+    return {
+      imgP: this.imagePath
+    };
+  },
+  methods: {
+    addToCart(id) {
+      axios
+        .get(`/add-to-cart/${this.id}`)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(e => console.log(e));
+    },
+    getUrl() {
+      console.log(this.imgP);
+      return this.imagePath;
+    }
+  }
 };
 </script>
 

@@ -9,15 +9,11 @@ class Cart
   public $totalPrice = 0;
   public function __construct($oldCart)
   {
-      if ($oldCart && sizeOf($oldCart->items) != 0) {
+      if ($oldCart) {
           $this->items = $oldCart->items;
           $this->totalQty = $oldCart->totalQty;
           $this->totalPrice = $oldCart->totalPrice;
-      } else {
-        $this->items = null;
-        $this->totalQty = 0;
-        $this->totalPrice = 0;
-      }
+      } 
   }
   public function add($item, $id) {
       $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];

@@ -22,7 +22,7 @@ class ProductController extends Controller
          $cart = new \App\Cart($oldCart);
          $cart->add($product,$product->id);
          $request->session()->put('cart',$cart);
-         return redirect()->route('products.index');
+         return response()->json($cart);
     }
 
     public function getCart() {

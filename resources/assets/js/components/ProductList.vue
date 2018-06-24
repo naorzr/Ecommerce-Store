@@ -81,10 +81,6 @@ export default {
 </script>
 
 <style>
-#product:hover {
-  display: inline-block;
-}
-
 .no-click {
   pointer-events: none;
 }

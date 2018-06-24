@@ -1,7 +1,7 @@
 <template>
 <div id="product">
 <div class="card h-100">
-                <img class="card-img-top" :src="getUrl" alt="">
+                <img class="card-img-top" :src="imagePath" alt="">
                 <div class="card-body">
                   <h4 class="card-title">
                     <h2 href="#">{{title}}</h2>
@@ -15,25 +15,18 @@
 </template>
 
 <script>
+import store from "../store";
 export default {
   props: ["title", "price", "imagePath", "description", "id"],
-  data() {
-    return {
-      imgP: this.imagePath
-    };
-  },
   methods: {
     addToCart(id) {
       axios
         .get(`/add-to-cart/${this.id}`)
         .then(res => {
-          console.log(res);
+          console.log(this.imagePath);
+          store.commit("setAmount", Object.keys(res.data.items).length);
         })
         .catch(e => console.log(e));
-    },
-    getUrl() {
-      console.log(this.imgP);
-      return this.imagePath;
     }
   }
 };

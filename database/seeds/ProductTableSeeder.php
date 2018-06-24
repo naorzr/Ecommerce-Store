@@ -11,12 +11,12 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        for($x = 0;$x <=28 ; $x++){
+        for($x = 0;$x <=32 ; $x++){
             $product = new \App\Product(
                 [
-                    'imagePath'=>'https://preview.ibb.co/khzTx8/20180620_232043.jpg',
-                    'title'=>'Harry Popper '.$x,
-                    'description'=> 'Well.. This is a description '.$x,
+                    'imagePath'=>'http://placekitten.com/402/'.($x+320),
+                    'title'=>'Dummy Data '.$x,
+                    'description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                     'price' => 10.42 +$x
                 ]
             );

@@ -1,6 +1,6 @@
 <template>
   <tr>
-      <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+      <td><img :src="item.imagePath" /> </td>
       <td>{{item.title}}</td>
       <td>{{item.description}}</td>
       <td><input class="form-control" type="text"  :value="currentQty" v-on:blur="updateQty" /></td>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import store from "../../store";
 export default {
   props: ["item", "qty"],
   data() {
@@ -35,6 +36,9 @@ export default {
         .then(res => {
           if (res) {
             this.$emit("removeRow");
+            store.commit("setAmount", Object.keys(res.data.items).length);
+          } else {
+            store.commit("setAmount", 0);
           }
         })
         .catch(e => console.log(e));

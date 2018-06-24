@@ -18,7 +18,14 @@
       </ul>    
       <ul class="navbar-nav ml-auto mt-2">
             <li class="nav-item px-3">
-            <router-link class="nav-link" to="/shopping-cart"><span class="fas fa-shopping-cart"></span>  Cart</router-link>
+            <router-link class="nav-link" to="/shopping-cart">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+            <a class="fa fa-shopping-cart">
+            <span class="fa fa-circle"></span>
+            <span class="num">{{items}}</span>
+            </a>      
+             Cart
+             </router-link>
           </li>
       </ul>
     </div>
@@ -27,8 +34,9 @@
 </template>
 
 <script>
+import store from "../store";
 export default {
-  name: "Navbar"
+  computed: { items: () => store.state.items }
 };
 </script>
 
@@ -41,6 +49,26 @@ export default {
   nav {
     display: none;
   }
+}
+a.fa-shopping-cart {
+  position: relative;
+  font-size: 2em;
+  color: grey;
+  cursor: pointer;
+}
+span.fa-circle {
+  position: absolute;
+  font-size: 0.6em;
+  top: -5px;
+  color: purple;
+  right: -6px;
+}
+span.num {
+  position: absolute;
+  font-size: 0.3em;
+  top: 1px;
+  color: #fff;
+  right: 2px;
 }
 </style>
 

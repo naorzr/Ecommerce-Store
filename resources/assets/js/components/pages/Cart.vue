@@ -10,7 +10,7 @@
                             <th scope="col">Product</th>
                             <th scope="col">Description</th>
                             <th scope="col" class="text-center">Quantity</th>
-                            <th scope="col" class="text-right">Price</th>
+                            <th scope="col" class="text-right">Item Price</th>
                             <th> </th>
                         </tr>
                     </thead>
@@ -62,7 +62,6 @@ export default {
   methods: {
     fetchCartItems() {
       axios.get("/shopping-cart-items").then(res => {
-        console.log(res);
         this.cartItems = res.data.items;
         this.totalPrice = res.data.totalPrice;
         this.totalQty = res.data.totalQty;

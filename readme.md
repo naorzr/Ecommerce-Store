@@ -3,11 +3,11 @@
 Ecommerce-shop built using Postgresql, Php-Laravel, Vuejs, Vuex and bootstrap
 The web-app is compatiable with Chrome,Firefox,Opera and Iexplorer
 
-##Setup and Install
+#Setup and Install
 
 Clone the repo and then install dependencies
 
-##Inline code
+#Inline code
 
 `$ npm install`
 
